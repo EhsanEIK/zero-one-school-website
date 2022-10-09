@@ -21,4 +21,14 @@ const getDataFromDB = () => {
     return courseCart;
 }
 
-export { addToDB, getDataFromDB }
+// remove single item from local storage
+const removeDataFromDB = id => {
+    let courseCart = getDataFromDB();
+    for (const courseId in courseCart) {
+        if (courseId === id) {
+            delete courseCart[id];
+            localStorage.setItem('cart', JSON.stringify(courseCart));
+        }
+    }
+}
+export { addToDB, getDataFromDB, removeDataFromDB }

@@ -22,6 +22,7 @@ const Cart = () => {
                 cart.map(course => {
                     return (
                         <p key={course.id} className='text-lg'>{course.name}
+                            <span className='bg-amber-500 text-sm rounded-full mx-3 py-1 px-2'>{course.quantity}</span>
                             <button onClick={() => removeCourse(course.id)} className='bg-red-400 ml-2 px-2 py-1'>X</button>
                         </p>
                     )

@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
-import { addToDB, getDataFromDB } from '../../utillities/fakeDB';
+import { addToDB, getDataFromDB, removeDataFromDB } from '../../utillities/fakeDB';
 import Cart from '../Cart/Cart';
 import Course from '../Course/Course';
 
@@ -32,6 +32,7 @@ const Courses = () => {
     const removeCourse = id => {
         const rest = cart.filter(c => c.id !== id);
         setCart(rest);
+        removeDataFromDB(id);
     }
 
     // loaded cart data from db after 1st loading
