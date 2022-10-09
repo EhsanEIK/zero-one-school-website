@@ -3,6 +3,8 @@ import { useLoaderData } from 'react-router-dom';
 import { addToDB, getDataFromDB, removeCart, removeDataFromDB } from '../../utillities/fakeDB';
 import Cart from '../Cart/Cart';
 import Course from '../Course/Course';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const CartContext = createContext('');
 
@@ -37,6 +39,7 @@ const Courses = () => {
 
     // remove full cart from DB
     const confirmOrder = () => {
+        cart.length ? toast.success("Hurrah! Order is on the way.") : toast.error("Please add item first.");
         setCart([]);
         removeCart();
     }
@@ -66,8 +69,9 @@ const Courses = () => {
                 }
             </div>
             <CartContext.Provider value={[cart, removeCourse, confirmOrder]}>
-                <div className={`bg-sky-500 text-white w-full md:static fixed bottom-0 my-0 p-5 ${cart.length >= 3 ? 'bg-amber-500' : undefined}`}>
+                <div className={`bg-sky-500 text-white w-full md:static fixed bottom-12 my-0 p-5 ${cart.length >= 3 ? 'bg-teal-600' : undefined}`}>
                     <Cart></Cart>
+                    <ToastContainer />
                 </div>
             </CartContext.Provider >
         </div >
