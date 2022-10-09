@@ -1,6 +1,6 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
-import { addToDB } from '../../utillities/fakeDB';
+import { addToDB, getDataFromDB } from '../../utillities/fakeDB';
 import Cart from '../Cart/Cart';
 import Course from '../Course/Course';
 
@@ -33,6 +33,20 @@ const Courses = () => {
         const rest = cart.filter(c => c.id !== id);
         setCart(rest);
     }
+
+    // loaded cart data from db after 1st loading
+    useEffect(() => {
+        const storedCart = getDataFromDB();
+        const newCart = [];
+        for (const id in storedCart) {
+            const courseExist = courses.find(course => course.id === id);
+            if (courseExist) {
+                courseExist.quantity = storedCart[id];
+                newCart.push(courseExist);
+            }
+        }
+        setCart(newCart);
+    }, [courses]);
 
     return (
         <div className='grid md:grid-cols-4 grid-cols-1 gap-5'>
