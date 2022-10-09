@@ -60,7 +60,7 @@ const Courses = () => {
 
     return (
         <div className='grid md:grid-cols-4 grid-cols-1 gap-5'>
-            <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 col-span-3 md:m-10 md:my-20 mt-20 mb-52 mx-2 gap-5'>
+            <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 col-span-3 md:m-10 md:my-20 mt-20 mb-96 mx-2 gap-5'>
                 {
                     courses.map(course => <Course
                         key={course.id}
