@@ -4,10 +4,11 @@ import Cart from '../Cart/Cart';
 import Course from '../Course/Course';
 
 export const CartContext = createContext('');
+
 const Courses = () => {
     const courses = useLoaderData();
-    // console.log(courses);
 
+    // add course to cart
     const [cart, setCart] = useState([]);
     const addToCart = course => {
         let newCart = [];
@@ -25,6 +26,12 @@ const Courses = () => {
         }
     }
 
+    // remove single course from cart
+    const removeCourse = id => {
+        const rest = cart.filter(c => c.id !== id);
+        setCart(rest);
+    }
+
     return (
         <div className='grid md:grid-cols-4 grid-cols-1 gap-5'>
             <div className='grid md:grid-cols-3 grid-cols-1 col-span-3 md:m-10 mx-2 gap-5'>
@@ -35,7 +42,7 @@ const Courses = () => {
                         handleAddToCart={addToCart}></Course>)
                 }
             </div>
-            <CartContext.Provider value={cart}>
+            <CartContext.Provider value={[cart, removeCourse]}>
                 <div className='cart-container bg-sky-500 text-white w-full md:static fixed bottom-0 p-5'>
                     <Cart></Cart>
                 </div>
