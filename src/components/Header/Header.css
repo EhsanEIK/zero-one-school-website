@@ -1,0 +1,7 @@
+.top-header {
+    background-image: url(../../images/bg-img.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+}
