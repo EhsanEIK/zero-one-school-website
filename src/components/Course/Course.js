@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-const Course = ({ course }) => {
+const Course = ({ course, handleAddToCart }) => {
     const { id, image, name, price } = course;
     const navigate = useNavigate();
     const handleClick = () => {
@@ -17,7 +17,7 @@ const Course = ({ course }) => {
                 <Link className='bg-red-600 text-white text-center font-semibold rounded-lg w-1/2 mt-5 px-4 py-1 hover:bg-red-700' to={`/course/${id}`}>Details Link</Link>
                 <button onClick={handleClick} className='bg-sky-600 text-white font-semibold rounded-lg w-1/2 mt-5 px-4 py-1 hover:bg-sky-700'>Details</button>
             </div>
-            <button className='bg-amber-600 text-white font-semibold rounded-lg w-full mt-5 px-4 py-1 hover:bg-amber-700'>Add to Cart</button>
+            <button onClick={() => handleAddToCart(course)} className='bg-amber-600 text-white font-semibold rounded-lg w-full mt-5 px-4 py-1 hover:bg-amber-700'>Add to Cart</button>
         </div >
     );
 };
