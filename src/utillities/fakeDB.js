@@ -31,4 +31,10 @@ const removeDataFromDB = id => {
         }
     }
 }
-export { addToDB, getDataFromDB, removeDataFromDB }
+
+// remove full cart from local storage
+const removeCart = () => {
+    localStorage.clear();
+}
+
+export { addToDB, getDataFromDB, removeDataFromDB, removeCart }

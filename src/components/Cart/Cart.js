@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { CartContext } from '../Courses/Courses';
 
 const Cart = () => {
-    const [cart, removeCourse] = useContext(CartContext);
+    const [cart, removeCourse, confirmOrder] = useContext(CartContext);
 
     let quantity = 0;
     let price = 0
@@ -28,6 +28,7 @@ const Cart = () => {
                     )
                 })
             }
+            <button onClick={confirmOrder} className='bg-rose-600 text-white font-semibold rounded-lg mt-10 w-full px-4 py-2 hover:bg-rose-700'>Confirm</button>
         </div >
     );
 };
