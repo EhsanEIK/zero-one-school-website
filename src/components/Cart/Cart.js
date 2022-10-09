@@ -16,7 +16,7 @@ const Cart = () => {
             <h1 className='text-4xl font-bold'>Cart Summary</h1>
             <div className='text-xl my-5'>
                 <p>Quantity: {quantity}</p>
-                <p>Price: {price.toFixed(2)}</p>
+                <p>Price: {price.toFixed(2)} TK.</p>
             </div>
             {
                 cart.map(course => {
