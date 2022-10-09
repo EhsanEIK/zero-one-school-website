@@ -43,7 +43,7 @@ const Courses = () => {
                 }
             </div>
             <CartContext.Provider value={[cart, removeCourse]}>
-                <div className={`bg-sky-500 text-white w-full md:static fixed bottom-0 p-5 ${cart.length >= 3 ? 'bg-amber-500' : undefined}`}>
+                <div className={`bg-sky-500 text-white w-full md:static fixed bottom-0 my-0 p-5 ${cart.length >= 3 ? 'bg-amber-500' : undefined}`}>
                     <Cart></Cart>
                 </div>
             </CartContext.Provider >
