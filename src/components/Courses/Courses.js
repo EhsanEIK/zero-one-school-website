@@ -1,5 +1,6 @@
 import React, { createContext, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { addToDB } from '../../utillities/fakeDB';
 import Cart from '../Cart/Cart';
 import Course from '../Course/Course';
 
@@ -23,6 +24,7 @@ const Courses = () => {
             course.quantity = 1;
             newCart = [...cart, course];
             setCart(newCart);
+            addToDB(course.id);
         }
     }
 
@@ -34,7 +36,7 @@ const Courses = () => {
 
     return (
         <div className='grid md:grid-cols-4 grid-cols-1 gap-5'>
-            <div className='grid md:grid-cols-3 grid-cols-1 col-span-3 md:m-10 md:my-20 mt-20 mb-52 mx-2 gap-5'>
+            <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 col-span-3 md:m-10 md:my-20 mt-20 mb-52 mx-2 gap-5'>
                 {
                     courses.map(course => <Course
                         key={course.id}
