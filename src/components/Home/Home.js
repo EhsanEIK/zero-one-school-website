@@ -1,9 +1,10 @@
 import React from 'react';
+import Welcome from '../Welcome/Welcome';
 
 const Home = () => {
     return (
-        <div>
-
+        <div className='container mx-auto'>
+            <Welcome></Welcome>
         </div>
     );
 };

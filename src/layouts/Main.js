@@ -6,7 +6,7 @@ const Main = () => {
     return (
         <div>
             <Header></Header>
-            <Outlet className='container mx-auto'></Outlet>
+            <Outlet></Outlet>
         </div>
     );
 };
