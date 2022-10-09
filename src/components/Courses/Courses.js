@@ -17,7 +17,7 @@ const Courses = () => {
             // const rest = cart.filter(c => c.id !== course.id);
             // exist.quantity = exist.quantity + 1;
             // newCart = [...rest, exist];
-            alert('This course is already added in cart!')
+            alert('This course is already added in cart!');
         }
         else {
             course.quantity = 1;
@@ -43,11 +43,11 @@ const Courses = () => {
                 }
             </div>
             <CartContext.Provider value={[cart, removeCourse]}>
-                <div className='cart-container bg-sky-500 text-white w-full md:static fixed bottom-0 p-5'>
+                <div className={`bg-sky-500 text-white w-full md:static fixed bottom-0 p-5 ${cart.length >= 3 ? 'bg-amber-500' : undefined}`}>
                     <Cart></Cart>
                 </div>
-            </CartContext.Provider>
-        </div>
+            </CartContext.Provider >
+        </div >
     );
 };
 
