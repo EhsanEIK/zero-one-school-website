@@ -18,7 +18,7 @@ const Chart = () => {
                     delete d.revenue;
                     return d;
                 })
-                setData(newData)
+                setData(newData);
             })
     }, []);
 
