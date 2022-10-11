@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts';
+import { CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 
 const Chart = () => {
     const [data, setData] = useState([]);
@@ -26,18 +26,16 @@ const Chart = () => {
         <section className='my-40'>
             <h1 className='text-4xl text-center font-bold mb-20'>Progress Chart</h1>
             <div className='flex justify-center'>
-                <LineChart
-                    width={800}
-                    height={400}
-                    data={data}
-                >
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="year" />
-                    <YAxis dataKey="marks" />
-                    <Tooltip />
-                    <Legend />
-                    <Line type="monotone" dataKey="marks" stroke="#8884d8" activeDot={{ r: 8 }} />
-                </LineChart>
+                <ResponsiveContainer width="100%" height={400}>
+                    <LineChart data={data}>
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="year" />
+                        <YAxis dataKey="marks" />
+                        <Tooltip />
+                        <Legend />
+                        <Line type="monotone" dataKey="marks" stroke="#8884d8" activeDot={{ r: 8 }} />
+                    </LineChart>
+                </ResponsiveContainer>
             </div>
         </section>
     );
